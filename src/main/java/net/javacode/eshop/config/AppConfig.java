@@ -1,5 +1,8 @@
 package net.javacode.eshop.config;
 
+import net.javacode.eshop.dao.CatDao;
+import net.javacode.eshop.dao.impl.CatDaoImpl;
+import net.javacode.eshop.entity.Cat;
 import net.javacode.eshop.model.CreateTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -47,5 +50,10 @@ public class AppConfig {
     @Bean
     public CreateTable createTable() {
         return new CreateTable(jdbcTemplate());
+    }
+
+    @Bean
+    public CatDao catDao() {
+        return new CatDaoImpl(Cat.class);
     }
 }
